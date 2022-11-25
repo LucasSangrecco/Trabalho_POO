@@ -1,6 +1,7 @@
 package br.com.newton.redesocial;
 
 import javax.swing.*;
+import java.util.ArrayList;
 
 public class RedeSocial {
     public static void main(String[] args) {
@@ -21,73 +22,73 @@ public class RedeSocial {
         String alteraSenha;
         String alteraDataNascimento;
         String alteraGenero;
-        int opcao1=0;
-        int opcao2=0;
-        int opcao3=0;
-        int opcao4=0;
-        int opcao5=0;
-        int opcao6=0;
+        int opcao1 = 0;
+        int opcao2 = 0;
+        int opcao3 = 0;
+        int opcao4 = 0;
+        int opcao5 = 0;
+        int opcao6 = 0;
 
-        Usuario usuario=null;
-        Amigo amigo=null;
+        Usuario usuario = null;
+        Amigo amigo = new Amigo();
 
-        do{
-
-            opcao1= Integer.parseInt(JOptionPane.showInputDialog("Escolha uma opção:\n" +
+        do {
+            opcao1 = Integer.parseInt(JOptionPane.showInputDialog("Escolha uma opção:\n" +
                     "<1> Cadastrar\n" +
                     "<2> Login\n" +
                     "<3> Sair\n"));
 
-            switch (opcao1){
+            switch (opcao1) {
 
                 case 1:
+                    nome = JOptionPane.showInputDialog("Digite o seu nome completo: ");
+                    telefone = JOptionPane.showInputDialog("Digite o seu telefone: ");
+                    email = JOptionPane.showInputDialog("Digite o seu e-mail: ");
+                    senha = JOptionPane.showInputDialog("Digite a sua senha: ");
+                    confirmaSenha = JOptionPane.showInputDialog("Confirme a sua senha: ");
+                    dataNascimento = JOptionPane.showInputDialog("Digite a data do seu nascimento: ");
+                    genero = JOptionPane.showInputDialog("Digite o seu genero :");
 
-                        nome = JOptionPane.showInputDialog("Digite o seu nome completo: ");
-                        telefone = JOptionPane.showInputDialog("Digite o seu telefone: ");
-                        email = JOptionPane.showInputDialog("Digite o seu e-mail: ");
-                        senha = JOptionPane.showInputDialog("Digite a sua senha: ");
-                        confirmaSenha = JOptionPane.showInputDialog("Confirme a sua senha: ");
-                        dataNascimento = JOptionPane.showInputDialog("Digite a data do seu nascimento: ");
-                        genero = JOptionPane.showInputDialog("Digite o seu genero :");
-
-                        if (senha == confirmaSenha) {
-                            usuario = new Usuario(nome, telefone, email, senha, dataNascimento, genero);
-                            usuario.Cadastrar(usuario);
-                        }
-                        else {
-                            JOptionPane.showMessageDialog(null, "As senhas não são iguais. Tente cadastrar novamente. ");
-                        }
+                    if (senha.equals(confirmaSenha)) {
+                        usuario = new Usuario(nome, telefone, email, senha, dataNascimento, genero);
+                        usuario.Cadastrar(usuario);
+                        JOptionPane.showMessageDialog(null, "Cadastro realizado com sucesso!");
+                    } else {
+                        JOptionPane.showMessageDialog(null, "As senhas não são iguais. Tente cadastrar novamente.", "Erro", JOptionPane.WARNING_MESSAGE);
+                    }
                     break;
 
                 case 2:
-                    emailLogin=JOptionPane.showInputDialog("Digite o seu e-mail: ");
-                    senhaLogin=JOptionPane.showInputDialog("Digite a sua senha: ");
+                    emailLogin = JOptionPane.showInputDialog("Digite o seu e-mail: ");
+                    senhaLogin = JOptionPane.showInputDialog("Digite a sua senha: ");
 
-                    if(emailLogin.equals(usuario.ConfirmaEmail()) && senhaLogin.equals(usuario.ConfirmaSenha())) {
+                    if (emailLogin.equals(usuario.ConfirmaEmail()) && senhaLogin.equals(usuario.ConfirmaSenha())) {
 
-                        JOptionPane.showMessageDialog(null,"Seja Bem Vindo!");
+                        JOptionPane.showMessageDialog(null, "Seja Bem Vindo!");
 
-                        do{
-
-                            opcao2=Integer.parseInt(JOptionPane.showInputDialog("Escolha uma opção:" +
+                        do {
+                            opcao2 = Integer.parseInt(JOptionPane.showInputDialog("Escolha uma opção:" +
                                     "\n<1> Ver perfil " +
                                     "\n<2> Ver lista de amigos" +
                                     "\n<3> Adicionar amigos" +
                                     "\n<4> Excluir amigos" +
                                     "\n<5> Sair"));
+
                             switch (opcao2) {
 
                                 case 1:
-
                                     JOptionPane.showMessageDialog(null, usuario.Perfil());
 
-                                    do{
-                                        opcao3=Integer.parseInt(JOptionPane.showInputDialog("Deseja alterar algum dado? " +
+                                    do {
+                                        opcao3 = Integer.parseInt(JOptionPane.showInputDialog("Deseja alterar algum dado? " +
                                                 "\n<1> Sim\n<2> Não"));
-                                        switch (opcao3){
+
+                                        switch (opcao3) {
+
                                             case 1:
-                                                do{
-                                                    opcao4=Integer.parseInt(JOptionPane.showInputDialog("Qual dado deseja editar:" +
+
+                                                do {
+                                                    opcao4 = Integer.parseInt(JOptionPane.showInputDialog("Qual dado deseja editar:" +
                                                             "\n<1> Nome" +
                                                             "\n<2> Telefone" +
                                                             "\n<3> E-mail" +
@@ -96,103 +97,112 @@ public class RedeSocial {
                                                             "\n<6> Gênero" +
                                                             "\n<7> Cancelar"));
 
-                                                    switch (opcao4){
+                                                    switch (opcao4) {
                                                         case 1:
-                                                            alteraNome=JOptionPane.showInputDialog("Digite o novo nome");
+                                                            alteraNome = JOptionPane.showInputDialog("Digite o novo nome");
                                                             usuario.setNome(alteraNome);
                                                             break;
                                                         case 2:
-                                                            alteraTelefone=JOptionPane.showInputDialog("Digite o  novo telefone: ");
+                                                            alteraTelefone = JOptionPane.showInputDialog("Digite o  novo telefone: ");
                                                             usuario.setTelefone(alteraTelefone);
                                                             break;
                                                         case 3:
-                                                            alteraEmail=JOptionPane.showInputDialog("Digite o novo E-mail: ");
+                                                            alteraEmail = JOptionPane.showInputDialog("Digite o novo E-mail: ");
                                                             usuario.setEmail(alteraEmail);
                                                             break;
                                                         case 4:
-                                                            confirmaSenha2=JOptionPane.showInputDialog("Digite a senha antiga: ");
+                                                            confirmaSenha2 = JOptionPane.showInputDialog("Digite a senha antiga: ");
 
-                                                            if (usuario.getSenha().equals(confirmaSenha2)){
-                                                                alteraSenha=JOptionPane.showInputDialog("Digite a nova senha: ");
+                                                            if (usuario.getSenha().equals(confirmaSenha2)) {
+                                                                alteraSenha = JOptionPane.showInputDialog("Digite a nova senha: ");
                                                                 usuario.setSenha(alteraSenha);
-                                                            }
-                                                            else{
+                                                            } else {
                                                                 JOptionPane.showMessageDialog(null, "Senha incorreta.\nTente novamente.");
                                                             }
                                                             break;
                                                         case 5:
-                                                            alteraDataNascimento=JOptionPane.showInputDialog("Digite a nova data de nascimento: ");
+                                                            alteraDataNascimento = JOptionPane.showInputDialog("Digite a nova data de nascimento: ");
                                                             usuario.setDataNascimento(alteraDataNascimento);
                                                             break;
                                                         case 6:
-                                                            alteraGenero=JOptionPane.showInputDialog("Digite o novo gênero: ");
+                                                            alteraGenero = JOptionPane.showInputDialog("Digite o novo gênero: ");
                                                             usuario.setGenero(alteraGenero);
                                                             break;
                                                     }
                                                 }
-                                                while(opcao4!=7);
+                                                while (opcao4 != 7);
                                                 break;
                                         }
                                     }
-                                    while(opcao3!=2);
+                                    while (opcao3 != 2);
                                     break;
+
                                 case 2:
-                                    for (int i=0;i<amigo.amigos.size();i++) {
-                                        JOptionPane.showMessageDialog(null,
-                                                "Nome: " + amigo.getNome(), "Amigos", JOptionPane.DEFAULT_OPTION);
+                                    if (amigo.amigos != null) {
+
+                                        for (int i = 0; i < amigo.amigos.size(); i++) {
+                                            JOptionPane.showMessageDialog(null,
+                                                    "Nome: " + amigo.getNome(), "Amigos", JOptionPane.DEFAULT_OPTION);
+                                        }
+                                    } else {
+                                        JOptionPane.showMessageDialog(null, "Você ainda não adicionou nenhum amigo"
+                                        );
                                     }
                                     break;
+
                                 case 3:
+                                    for (int i = 0; i < usuario.usuarios.size(); i++) {
 
-                                    for (int i=0;i<usuario.usuarios.size();i++) {
-
-                                        do{
+                                        do {
                                             JOptionPane.showMessageDialog(null,
                                                     "Nome: " + usuario.getNome(), "Usuários", JOptionPane.DEFAULT_OPTION);
 
-                                            opcao5=Integer.parseInt(JOptionPane.showInputDialog("Deseja adicionar esta pessoa a sua lista de amigos? " +
+                                            opcao5 = Integer.parseInt(JOptionPane.showInputDialog("Deseja adicionar esta pessoa a sua lista de amigos? " +
                                                     "\n\n<1> Sim" +
                                                     "\n<2> Não"));
 
-                                            switch (opcao5){
+                                            switch (opcao5) {
                                                 case 1:
                                                     amigo.Incluir(usuario);
                                                     JOptionPane.showMessageDialog(null, "Amigo adicionado com sucesso!");
                                             }
                                         }
-                                        while(opcao5!=2);
+                                        while (opcao5 != 2);
                                     }
                                     break;
                                 case 4:
 
-                                    for (int i=0;i<amigo.amigos.size();i++);{
+                                    for (int i = 0; i < amigo.amigos.size(); i++) ;
+                                {
 
-                                        do{
-                                            JOptionPane.showMessageDialog(null,
-                                                    "Nome: " + amigo.getNome(), "Amigos", JOptionPane.DEFAULT_OPTION);
+                                    do {
+                                        JOptionPane.showMessageDialog(null,
+                                                "Nome: " + amigo.getNome(), "Amigos", JOptionPane.DEFAULT_OPTION);
 
-                                            opcao6=Integer.parseInt(JOptionPane.showInputDialog("Deseja excluir esta pessoa da sua lista de amigos?" +
-                                                    "\n\n<1> Sim" +
-                                                    "\n <2> Não"));
-                                            switch (opcao6){
-                                                case 1:
-                                                    amigo.Excluir(amigo);
-                                                    JOptionPane.showMessageDialog(null, "Amigo excluido com sucesso!");
-                                            }
-
+                                        opcao6 = Integer.parseInt(JOptionPane.showInputDialog("Deseja excluir esta pessoa da sua lista de amigos?" +
+                                                "\n\n<1> Sim" +
+                                                "\n <2> Não"));
+                                        switch (opcao6) {
+                                            case 1:
+                                                amigo.Excluir(amigo);
+                                                JOptionPane.showMessageDialog(null, "Amigo excluido com sucesso!");
                                         }
-                                        while(opcao6!=2);
+
+                                    }
+                                    while (opcao6 != 2);
                                 }
 
                             }
 
                         }
-                        while(opcao2!=5);
+                        while (opcao2 != 5);
+                    } else {
+                        JOptionPane.showMessageDialog(null, "Senha ou e-mail incorretos!", "Erro", JOptionPane.WARNING_MESSAGE);
                     }
                     break;
             }
         }
-        while(opcao1!=3);
+        while (opcao1 != 3);
 
     }
 

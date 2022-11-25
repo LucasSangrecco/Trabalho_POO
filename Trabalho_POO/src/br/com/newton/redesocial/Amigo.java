@@ -7,11 +7,9 @@ public class Amigo {
     String nome;
 
     ArrayList<Usuario> amigos = new ArrayList<Usuario>();
-    Amigo a1;
 
 
-    public Amigo(String nome) {
-        this.nome = nome;
+    public Amigo() {
     }
 
     public String getNome() {

@@ -80,7 +80,6 @@ public class Usuario {
         for (int i=0;i<usuarios.size();i++){
             Usuario u = (Usuario)usuarios.get(i);
             confirmaSenha=u.getSenha();
-
         }
         return confirmaSenha;
     }
