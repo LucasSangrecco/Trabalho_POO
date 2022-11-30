@@ -6,7 +6,7 @@ public class Amigo {
 
     String nome;
 
-    ArrayList<Usuario> amigos = new ArrayList<Usuario>();
+    static ArrayList<Usuario> amigos = new ArrayList<Usuario>();
 
 
     public Amigo() {

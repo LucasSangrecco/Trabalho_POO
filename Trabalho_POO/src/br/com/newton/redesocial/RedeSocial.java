@@ -29,14 +29,20 @@ public class RedeSocial {
         int opcao5 = 0;
         int opcao6 = 0;
 
+        ArrayList<Usuario> usuarios = new ArrayList<Usuario>();
+
+
         Usuario usuario = null;
-        Amigo amigo = new Amigo();
+        Amigo amigo = null;
+
 
         do {
             opcao1 = Integer.parseInt(JOptionPane.showInputDialog("Escolha uma opção:\n" +
                     "<1> Cadastrar\n" +
                     "<2> Login\n" +
                     "<3> Sair\n"));
+
+
 
             switch (opcao1) {
 
@@ -51,9 +57,11 @@ public class RedeSocial {
 
                     if (senha.equals(confirmaSenha)) {
                         usuario = new Usuario(nome, telefone, email, senha, dataNascimento, genero);
+                        usuarios.add(usuario);
                         usuario.Cadastrar(usuario);
                         JOptionPane.showMessageDialog(null, "Cadastro realizado com sucesso!");
-                    } else {
+                    }
+                    else {
                         JOptionPane.showMessageDialog(null, "As senhas não são iguais. Tente cadastrar novamente.", "Erro", JOptionPane.WARNING_MESSAGE);
                     }
                     break;

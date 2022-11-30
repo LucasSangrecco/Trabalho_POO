@@ -11,7 +11,11 @@ public class Usuario {
     String dataNascimento;
     String genero;
 
-    ArrayList<Usuario> usuarios = new ArrayList<Usuario>();
+    static ArrayList<Usuario> usuarios = new ArrayList<Usuario>();
+
+    public Usuario(){
+    }
+
     public Usuario(String nome, String telefone, String email, String senha, String dataNascimento, String genero) {
         this.nome = nome;
         this.telefone = telefone;
