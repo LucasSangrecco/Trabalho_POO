@@ -6,7 +6,7 @@ public class Amigo {
 
     String nome;
 
-    static ArrayList<Usuario> amigos = new ArrayList<Usuario>();
+    private ArrayList<Usuario> amigos = new ArrayList<Usuario>();
 
 
     public Amigo() {
@@ -20,12 +20,20 @@ public class Amigo {
         this.nome = nome;
     }
 
+    public ArrayList<Usuario> getAmigos() {
+        return amigos;
+    }
+
+    public void setAmigos(ArrayList<Usuario> amigos) {
+        this.amigos = amigos;
+    }
+
     public void Incluir(Usuario usuario){
         amigos.add(usuario);
     }
 
-    public void Excluir(Amigo amigo){
-        amigos.remove(amigo);
+    public void Excluir(Usuario usuario){
+        amigos.remove(usuario);
     }
 
 }

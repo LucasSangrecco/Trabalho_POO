@@ -11,7 +11,7 @@ public class Usuario {
     String dataNascimento;
     String genero;
 
-    static ArrayList<Usuario> usuarios = new ArrayList<Usuario>();
+    private ArrayList<Usuario> usuarios = new ArrayList<Usuario>();
 
     public Usuario(){
     }
@@ -75,6 +75,14 @@ public class Usuario {
 
     public void Cadastrar(Usuario usuario) {
         usuarios.add(usuario);
+    }
+
+    public ArrayList<Usuario> getUsuarios() {
+        return usuarios;
+    }
+
+    public void setUsuarios(ArrayList<Usuario> usuarios) {
+        this.usuarios = usuarios;
     }
 
     public String ConfirmaSenha(){

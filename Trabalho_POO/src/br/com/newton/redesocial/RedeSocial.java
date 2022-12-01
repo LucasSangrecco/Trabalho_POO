@@ -29,11 +29,11 @@ public class RedeSocial {
         int opcao5 = 0;
         int opcao6 = 0;
 
-        ArrayList<Usuario> usuarios = new ArrayList<Usuario>();
+        ArrayList<Usuario> usuariosCadastrados = new ArrayList<Usuario>();
 
 
         Usuario usuario = null;
-        Amigo amigo = null;
+        Amigo amigo = new Amigo();
 
 
         do {
@@ -41,7 +41,6 @@ public class RedeSocial {
                     "<1> Cadastrar\n" +
                     "<2> Login\n" +
                     "<3> Sair\n"));
-
 
 
             switch (opcao1) {
@@ -57,7 +56,7 @@ public class RedeSocial {
 
                     if (senha.equals(confirmaSenha)) {
                         usuario = new Usuario(nome, telefone, email, senha, dataNascimento, genero);
-                        usuarios.add(usuario);
+                        usuariosCadastrados.add(usuario);
                         usuario.Cadastrar(usuario);
                         JOptionPane.showMessageDialog(null, "Cadastro realizado com sucesso!");
                     }
@@ -124,7 +123,8 @@ public class RedeSocial {
                                                             if (usuario.getSenha().equals(confirmaSenha2)) {
                                                                 alteraSenha = JOptionPane.showInputDialog("Digite a nova senha: ");
                                                                 usuario.setSenha(alteraSenha);
-                                                            } else {
+                                                            }
+                                                            else {
                                                                 JOptionPane.showMessageDialog(null, "Senha incorreta.\nTente novamente.");
                                                             }
                                                             break;
@@ -146,9 +146,9 @@ public class RedeSocial {
                                     break;
 
                                 case 2:
-                                    if (amigo.amigos != null) {
+                                    if (amigo != null) {
 
-                                        for (int i = 0; i < amigo.amigos.size(); i++) {
+                                        for (int i = 0; i < amigo.getAmigos().size(); i++) {
                                             JOptionPane.showMessageDialog(null,
                                                     "Nome: " + amigo.getNome(), "Amigos", JOptionPane.DEFAULT_OPTION);
                                         }
@@ -159,29 +159,27 @@ public class RedeSocial {
                                     break;
 
                                 case 3:
-                                    for (int i = 0; i < usuario.usuarios.size(); i++) {
+                                    for (Usuario usuario1 : usuariosCadastrados) {
 
-                                        do {
+
                                             JOptionPane.showMessageDialog(null,
-                                                    "Nome: " + usuario.getNome(), "Usuários", JOptionPane.DEFAULT_OPTION);
+                                                    "Nome: " + usuario1.getNome(), "Usuários", JOptionPane.DEFAULT_OPTION);
 
                                             opcao5 = Integer.parseInt(JOptionPane.showInputDialog("Deseja adicionar esta pessoa a sua lista de amigos? " +
                                                     "\n\n<1> Sim" +
                                                     "\n<2> Não"));
 
-                                            switch (opcao5) {
-                                                case 1:
-                                                    amigo.Incluir(usuario);
+                                            if (opcao5==1) {
+                                                    amigo.Incluir(usuario1);
                                                     JOptionPane.showMessageDialog(null, "Amigo adicionado com sucesso!");
                                             }
-                                        }
-                                        while (opcao5 != 2);
+
                                     }
                                     break;
+
                                 case 4:
 
-                                    for (int i = 0; i < amigo.amigos.size(); i++) ;
-                                {
+                                    for (int i = 0; i < amigo.getAmigos().size(); i++) ;{
 
                                     do {
                                         JOptionPane.showMessageDialog(null,
@@ -192,14 +190,14 @@ public class RedeSocial {
                                                 "\n <2> Não"));
                                         switch (opcao6) {
                                             case 1:
-                                                amigo.Excluir(amigo);
+                                                amigo.Excluir(usuario);
                                                 JOptionPane.showMessageDialog(null, "Amigo excluido com sucesso!");
                                         }
 
                                     }
                                     while (opcao6 != 2);
                                 }
-
+                                break;
                             }
 
                         }
