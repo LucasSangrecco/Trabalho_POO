@@ -184,7 +184,7 @@ public class RedeSocial {
                                     case 3:
                                         for (Usuario usuario2 : usuariosCadastrados) {
 
-                                           do{
+                                            do{
                                                 JOptionPane.showMessageDialog(null,
                                                         "Nome: " + usuario2.getNome(), "Usuários", JOptionPane.DEFAULT_OPTION);
 
@@ -201,8 +201,8 @@ public class RedeSocial {
                                                     break;
                                                 }
                                                 else if(opcao5==2){
-                                                        JOptionPane.showMessageDialog(null, "Próximo usuário.");
-                                                        break;
+                                                    JOptionPane.showMessageDialog(null, "Próximo usuário.");
+                                                    break;
                                                 }
                                                 else if(opcao5==3){
                                                     JOptionPane.showMessageDialog(null, "Voltando ao menu anterior");
@@ -231,24 +231,24 @@ public class RedeSocial {
                                                         "\n<2> Não" +
                                                         "\n<3> Voltar"));
 
-                                                   if(opcao6==1) {
-                                                       amigosAdicionados.remove(amigo2);
-                                                       amigo2.Excluir(usuario1);
-                                                       JOptionPane.showMessageDialog(null, "Amigo excluido com sucesso!");
-                                                       break;
-                                                   }
-                                                    else if(opcao6==2) {
-                                                       JOptionPane.showMessageDialog(null, "Próximo Amigo.");
-                                                       break;
-                                                   }
-                                                    else if(opcao6==3) {
-                                                       JOptionPane.showMessageDialog(null, "Voltando ao menu anterior");
-                                                       break;
-                                                   }
-                                                    else {
-                                                       JOptionPane.showMessageDialog(null, "Opção inválida");
-                                                       break;
-                                                   }
+                                                if(opcao6==1) {
+                                                    amigosAdicionados.remove(amigo2);
+                                                    amigo2.Excluir(usuario1);
+                                                    JOptionPane.showMessageDialog(null, "Amigo excluido com sucesso!");
+                                                    break;
+                                                }
+                                                else if(opcao6==2) {
+                                                    JOptionPane.showMessageDialog(null, "Próximo Amigo.");
+                                                    break;
+                                                }
+                                                else if(opcao6==3) {
+                                                    JOptionPane.showMessageDialog(null, "Voltando ao menu anterior");
+                                                    break;
+                                                }
+                                                else {
+                                                    JOptionPane.showMessageDialog(null, "Opção inválida");
+                                                    break;
+                                                }
 
 
                                             }
@@ -270,6 +270,9 @@ public class RedeSocial {
                             break;
                         }
                     }
+                    break;
+                case 3:
+                    JOptionPane.showMessageDialog(null, "Tenha um ótimo dia!");
                     break;
                 default:
                     JOptionPane.showMessageDialog(null,"Opção inválida");
