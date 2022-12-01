@@ -8,9 +8,10 @@ public class Amigo {
 
     private ArrayList<Usuario> amigos = new ArrayList<Usuario>();
 
-
-    public Amigo() {
+    public Amigo(String nome) {
+        this.nome = nome;
     }
+
 
     public String getNome() {
         return nome;
