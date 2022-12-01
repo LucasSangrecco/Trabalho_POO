@@ -1,3 +1,15 @@
+
+
+/*
+       Integrantes:
+
+       Leandro Sales Santos
+       Lucas de Oliveira Rogrigues Abreu
+       Talison de Jesus Moura
+
+ */
+
+
 package br.com.newton.redesocial;
 
 import javax.swing.*;
