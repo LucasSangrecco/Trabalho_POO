@@ -70,7 +70,8 @@ public class RedeSocial {
 
                     for (Usuario usuario1 : usuariosCadastrados) {
 
-                        if (emailLogin.equals(usuario1.ConfirmaEmail()) && senhaLogin.equals(usuario1.ConfirmaSenha())) {
+
+                        if (emailLogin.equals(usuario1.getEmail()) && senhaLogin.equals(usuario1.getSenha())) {
 
                             JOptionPane.showMessageDialog(null, "Seja Bem Vindo!");
 
@@ -254,6 +255,7 @@ public class RedeSocial {
                         }
                         else {
                             JOptionPane.showMessageDialog(null, "Senha ou e-mail incorretos!", "Erro", JOptionPane.WARNING_MESSAGE);
+                            break;
                         }
                     }
                     break;
